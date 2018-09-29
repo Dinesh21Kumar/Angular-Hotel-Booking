@@ -1,0 +1,23 @@
+
+  
+  <div *ngIf="h">
+      <h2  class="heading">Welcome to {{h.name}}</h2>
+  </div>
+
+
+      <form id="mainForm">
+          <div id="in">Check In: <ng-datepicker [(ngModel)]="date1" [ngModelOptions]="{standalone: true}"></ng-datepicker></div>
+          <div id="out">Check Out:<ng-datepicker [(ngModel)]="date2" [ngModelOptions]="{standalone: true}" ></ng-datepicker></div>
+          <div id="guests"> No of Guests: <input type="number" name="noOfGuests" id="noOfGuests" min="1" value=1 [(ngModel)]="noOfGuests" [ngModelOptions]="{standalone: true}" required ></div>
+          <div id="rooms"> No of Rooms: <input type="number" name="noOfRooms" id="noOfRooms" min="1" value=1 [(ngModel)]="noOfRooms" [ngModelOptions]="{standalone: true}" required></div>
+          <button (click) = "submit(h.name,h.id,date1,date2,noOfGuests,noOfRooms)" id="submitButton">Confirm Booking</button>
+          <div *ngIf="created==1"><app-bookingsuccess></app-bookingsuccess></div>
+          <button (click) = "goBackHome()" id="backButton">Book New Hotel</button>
+      </form>
+
+
+  
+
+
+  
+

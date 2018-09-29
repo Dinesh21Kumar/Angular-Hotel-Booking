@@ -1,0 +1,25 @@
+
+    <!-- <tr *ngFor="let hotel of hotels">
+      <td>{{ hotel.id }}</td>
+      <td>{{ hotel.name }}</td>
+      <td>{{ hotel.country }}</td>
+    </tr> -->
+ <!-- <ul>
+   <li *ngFor="let hotel of hotels | paginate: { itemsPerPage: 10, currentPage: p }">page {{p}}</li>
+ </ul> -->
+
+ <h1 class="heading">Welcome To Hotel-Mania</h1>
+ <div *ngFor="let hotel of hotels | angularPaginator: { currentPage: currentPage }; let i = index" style="background-color:lightblue">
+  <div class="hotel">
+      <h3>{{hotel.name}}</h3>
+      <div class = "hotel-info">
+        <p>{{hotel.city}}, {{hotel.country}}</p>
+        <p>Ratings: {{hotel.reviews_rating}} / 10</p>
+        <p>Reviews: {{hotel.reviews_title}}</p>
+      </div>
+      <button (click) = "bookHotel(hotel.id)" class="book-button"> Book Now </button>
+  </div>
+  
+</div>
+
+<app-angular-paginator (pageChange)="currentPage = $event" className="paginator"></app-angular-paginator>
