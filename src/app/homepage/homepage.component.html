@@ -8,7 +8,13 @@
    <li *ngFor="let hotel of hotels | paginate: { itemsPerPage: 10, currentPage: p }">page {{p}}</li>
  </ul> -->
 
+
  <h1 class="heading">Welcome To Hotel-Mania</h1>
+  <div class="input-group">
+    <input type="text" class="form-control" id="search-input" placeholder="Search Hotel By name or city.." [(ngModel)] ="city" (keyup) = "searchHotelsByCity()">
+ </div>
+ 
+
  <div *ngFor="let hotel of hotels | angularPaginator: { currentPage: currentPage }; let i = index" style="background-color:lightblue">
   <div class="hotel">
       <h3>{{hotel.name}}</h3>
@@ -19,7 +25,6 @@
       </div>
       <button (click) = "bookHotel(hotel.id)" class="book-button"> Book Now </button>
   </div>
-  
 </div>
 
 <app-angular-paginator (pageChange)="currentPage = $event" className="paginator"></app-angular-paginator>

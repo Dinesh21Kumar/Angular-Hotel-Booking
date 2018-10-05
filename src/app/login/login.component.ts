@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../api-service.service';
+import { CustomerService } from '../customer-service.service';
 
 @Component({
   selector: 'app-login',
@@ -9,24 +11,31 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   btnText = "Login";
-  public userName:string;
-  public passWord:string;
+  userName = 'dinesh@test';
+  passWord = '1234';
 
-  constructor(private route: Router) { }
+
+  constructor(private api: ApiService, private customer: CustomerService, private route: Router) { }
 
   ngOnInit() {
   }
-  
+
   formSubmiited() {
-    console.log(this.userName);
-    console.log(this.passWord);
-    if(this.userName=='dineshkumar13506@gmail.com' && this.passWord =='1234') {
-      this.route.navigate(['home']);
-    }
-    else {
-      this.route.navigate(['loginerror']);
-    }
-    }
+    this.api.login(
+      this.userName,
+      this.passWord
+    )
+      .subscribe(
+        r => {
+          if (r.token) {
+            this.customer.setToken(r.token);
+            this.route.navigate(['home']);
+          }
+        },
+        r => {
+          alert(r.error.error);
+        });
   }
+}
 
 

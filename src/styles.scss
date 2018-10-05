@@ -91,7 +91,7 @@ h3 {
 } 
 
 .paginator a{
-	color: green;
+	color: rgb(74, 22, 219);
 }
 
 ul {
@@ -162,7 +162,7 @@ input::-moz-placeholder {
 
 #submitButton {
 
-	padding: 18px;
+	padding: 15px;
 	margin-top: 40px;
 	background: green;
 	border-radius: 12px;
@@ -173,7 +173,7 @@ input::-moz-placeholder {
 	background: green;
 	left: 50%;
 	width: 300px;
-	padding: 8px;
+	margin-top:2%;
 
 }
 
@@ -184,3 +184,14 @@ input::-moz-placeholder {
 	width: 300px;
 	padding: 8px;
 }
+
+#search-input {
+	width: 180%;
+	margin-left: 540%;
+
+}
+#search-button {
+	padding: 7px;
+	margin-right: 20%;
+}
+

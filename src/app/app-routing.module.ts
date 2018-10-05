@@ -6,34 +6,37 @@ import { HomepageComponent } from './homepage/homepage.component'
 import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component'
 import { BookingpageComponent } from './bookingpage/bookingpage.component'
 import { BookingsuccessComponent } from './bookingsuccess/bookingsuccess.component'
+import { NeedAuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
   {
-    path:'',
+    path: '',
     component: LoginComponent
 
   },
   {
-    path:'loginerror',
+    path: 'loginerror',
     component: LoginerrorComponent
 
   },
   {
-    path:'loginsuccess',
+    path: 'loginsuccess',
     component: LoginsuccessComponent
 
   },
   {
-    path:'home',
-    component:HomepageComponent
+    path: 'home',
+    component: HomepageComponent,
+    canActivate: [NeedAuthGuard] // <---- connected Route with guard
   },
   {
-    path:'bookhotel/:id',
-    component:BookingpageComponent
+    path: 'bookhotel/:id',
+    component: BookingpageComponent,
+    canActivate: [NeedAuthGuard]
   },
   {
-    path:'bookingsuccess',
+    path: 'bookingsuccess',
     component: BookingsuccessComponent
   }
 ];

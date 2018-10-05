@@ -21,6 +21,7 @@ import { BookingpageComponent } from './bookingpage/bookingpage.component';
 import { DatepickerCustomIconExampleComponent } from './datepicker-custom-icon-example/datepicker-custom-icon-example.component';
 import { BookingsuccessComponent } from './bookingsuccess/bookingsuccess.component';
 import { BookingfailureComponent } from './bookingfailure/bookingfailure.component';
+import { NeedAuthGuard } from './auth.guard';
 
 
 
@@ -51,7 +52,7 @@ import { BookingfailureComponent } from './bookingfailure/bookingfailure.compone
     BrowserAnimationsModule,
     NgDatepickerModule
   ],
-  providers: [HotelService],
+  providers: [HotelService,NeedAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
